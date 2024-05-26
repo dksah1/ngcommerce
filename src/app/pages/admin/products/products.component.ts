@@ -27,28 +27,63 @@ export class ProductsComponent implements OnInit {
   };
 
   categoryList: any[] = [];
+  productsList: any[] = [];
   constructor(private productsrv: ProductService) {}
 
   ngOnInit(): void {
     this.getAllCategory();
+    this.getAllProducts();
   }
 
-  getAllCategory() {
-    return this.productsrv.getCategory().subscribe((res: any) => {
-      this.categoryList = res.data;
+  getAllProducts() {
+    this.productsrv.getAllProducts().subscribe((res: any) => {
+      this.productsList = res;
+      console.log('product list', this.productsList);
     });
   }
-
+  getAllCategory() {
+    return this.productsrv.getAllCategory().subscribe((res: any) => {
+      this.categoryList = res;
+      console.log('all category', this.categoryList);
+    });
+  }
+  onUpdate() {
+    this.productsrv.updateProduct(this.productObj).subscribe((res: any) => {
+      if (res) {
+        alert('Product cupdated');
+        this.getAllProducts();
+      } else {
+        alert(res.message);
+      }
+    });
+  }
   onSave() {
-    this.productsrv.saveProduct(
-      this.productObj.subscribe((res: any) => {
-        if (res.result) {
-          alert('Product created');
+    this.productsrv.saveProduct(this.productObj).subscribe((res: any) => {
+      if (res) {
+        alert('Product created');
+        this.getAllProducts();
+      } else {
+        alert(res.message);
+      }
+    });
+  }
+  onDelete(item: any) {
+    const isDelete = confirm('are you sure want to delete');
+    debugger;
+    if (isDelete) {
+      this.productsrv.deleteProduct(item.productId).subscribe((res: any) => {
+        if (res) {
+          alert('Product deleted');
+          this.getAllProducts();
         } else {
           alert(res.message);
         }
-      })
-    );
+      });
+    }
+  }
+  onEdit(item: any) {
+    this.productObj = item;
+    this.openSidePanel();
   }
 
   openSidePanel() {
