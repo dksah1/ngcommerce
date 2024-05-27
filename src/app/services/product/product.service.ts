@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Constant } from '../constant/constant';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,12 @@ import { Constant } from '../constant/constant';
 export class ProductService {
   constructor(private http: HttpClient) {}
 
+  createCategory(obj: any): Observable<any> {
+    return this.http.post<any>(
+      Constant.API_END_POINTS + Constant.METHODS.CREATE_NEW_CATEGORY,
+      obj
+    );
+  }
   getAllCategory() {
     return this.http.get(
       Constant.API_END_POINTS + Constant.METHODS.GET_ALL_CATEGORY
