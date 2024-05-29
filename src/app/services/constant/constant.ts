@@ -1,5 +1,5 @@
 export const Constant = {
-  API_END_POINTS: 'https://localhost:7039/api/',
+  API_END_POINTS: 'http://localhost:2030/api/',
   METHODS: {
     GET_ALL_PRODUCT: 'Products/getallProducts',
     GET_ALL_CATEGORY: 'Category',
