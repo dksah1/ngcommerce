@@ -32,8 +32,7 @@ export class ProductService {
   }
   deleteProduct(id: any) {
     return this.http.delete(
-      Constant.API_END_POINTS + Constant.METHODS.DELETE_PRODUCT,
-      id
+      `${Constant.API_END_POINTS}${Constant.METHODS.DELETE_PRODUCT}/${id}`
     );
   }
 }

@@ -13,8 +13,8 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-3" *ngFor="let product of productsList">
-            <div class="card">
+          <div class="col-3 mb-3" *ngFor="let product of productsList">
+            <div class="card h-100 w-auto">
               <img
                 [src]="product.productImageUrl"
                 alt="card image"
@@ -49,7 +49,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-6">
-            <label for="">SKU(thumnail)</label>
+            <label for="">(thumnail)</label>
             <input
               type="text"
               [(ngModel)]="productObj.productSku"

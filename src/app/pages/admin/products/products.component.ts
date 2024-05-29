@@ -69,7 +69,7 @@ export class ProductsComponent implements OnInit {
   }
   onDelete(item: any) {
     const isDelete = confirm('are you sure want to delete');
-    debugger;
+
     if (isDelete) {
       this.productsrv.deleteProduct(item.productId).subscribe((res: any) => {
         if (res) {
