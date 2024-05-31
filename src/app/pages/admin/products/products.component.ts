@@ -48,14 +48,16 @@ export class ProductsComponent implements OnInit {
     });
   }
   onUpdate() {
-    this.productsrv.updateProduct(this.productObj).subscribe((res: any) => {
-      if (res) {
-        alert('Product cupdated');
-        this.getAllProducts();
-      } else {
-        alert(res.message);
-      }
-    });
+    this.productsrv
+      .updateProduct(this.productObj.productId)
+      .subscribe((res: any) => {
+        if (res) {
+          alert('Product cupdated');
+          this.getAllProducts();
+        } else {
+          alert(res.message);
+        }
+      });
   }
   onSave() {
     this.productsrv.saveProduct(this.productObj).subscribe((res: any) => {

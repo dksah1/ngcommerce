@@ -4,7 +4,7 @@ export const Constant = {
     GET_ALL_PRODUCT: 'Products/getallProducts',
     GET_ALL_CATEGORY: 'Category',
     CREATE_PRODUCT: 'Products/createProduct',
-    UPDATE_PRODUCT: 'Products/updateProducts/',
+    UPDATE_PRODUCT: 'Products/updateProducts',
     DELETE_PRODUCT: 'Products/deleteProductsbyId',
   },
 };

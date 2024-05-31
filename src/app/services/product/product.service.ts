@@ -24,10 +24,10 @@ export class ProductService {
       obj
     );
   }
-  updateProduct(obj: any) {
-    return this.http.post(
-      Constant.API_END_POINTS + Constant.METHODS.UPDATE_PRODUCT,
-      obj
+  updateProduct(id: any) {
+    return this.http.get(
+      `${Constant.API_END_POINTS}${Constant.METHODS.UPDATE_PRODUCT}/${id}`,
+      {}
     );
   }
   deleteProduct(id: any) {
